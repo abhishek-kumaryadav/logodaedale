@@ -52,14 +52,18 @@ class SignUpPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   const Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 10),
                     child: Text(
                       "Create your Profile",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                     ),
                   ),
-                  MySignupForm(),
+                  MySignupForm(
+                    function: () {
+                      Navigator.pushNamed(context, "/Home");
+                    },
+                  ),
                 ],
               ),
               // ),

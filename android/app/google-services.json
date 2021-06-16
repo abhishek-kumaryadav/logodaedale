@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1009078434494",
+    "project_id": "logodaedale",
+    "storage_bucket": "logodaedale.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009078434494:android:b8dd1c7a46bf6a2b8dbcef",
+        "android_client_info": {
+          "package_name": "com.abhk943.logodaedale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009078434494-mjgm1k15dqofg758cefs2b8hcie3cjlh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuf48QBFlu8iExXobjL-1pScklClO2bKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009078434494-mjgm1k15dqofg758cefs2b8hcie3cjlh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

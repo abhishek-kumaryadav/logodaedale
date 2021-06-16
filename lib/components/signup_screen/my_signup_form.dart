@@ -6,11 +6,12 @@ import 'package:logodaedale/components/my_text_form_field.dart';
 class MySignupForm extends StatelessWidget {
   const MySignupForm({
     Key? key,
+    required this.function,
     // required this.sz,
   }) : super(key: key);
 
   // final Size sz;
-
+  final VoidCallback function;
   @override
   Widget build(BuildContext context) {
     Size sz = MediaQuery.of(context).size;
@@ -21,7 +22,7 @@ class MySignupForm extends StatelessWidget {
         child: Column(
           children: <Widget>[
             MyTextFormField(
-              title: "Name",
+              title: "Username",
               validator: (value) {
                 if (value == null) return null;
               },
@@ -45,8 +46,11 @@ class MySignupForm extends StatelessWidget {
               obscureText: true,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: const MySubmitButton(title: "Create Account"),
+              padding: EdgeInsets.symmetric(vertical: 20),
+              child: MySubmitButton(
+                title: "Create Account",
+                function: function,
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,7 +60,7 @@ class MySignupForm extends StatelessWidget {
                   width: sz.width * 0.34,
                   color: Colors.grey,
                 ),
-                Text(
+                const Text(
                   'OR',
                   style: TextStyle(color: Colors.grey),
                 ),

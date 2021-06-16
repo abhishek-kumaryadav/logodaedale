@@ -40,15 +40,18 @@ class MyLoginForm extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
-              child: const MySubmitButton(title: "Login"),
+              child: MySubmitButton(
+                title: "Login",
+                function: () {},
+              ),
             ),
-            CustomORLineBreak(),
+            const CustomORLineBreak(),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Row(
                 children: <Widget>[
                   // TODO: implement half size
-                  Container(
+                  SizedBox(
                     width: sz.width * .37,
                     child: SignInButton(
                       Buttons.Google,

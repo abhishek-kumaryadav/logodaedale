@@ -5,8 +5,9 @@ class MySubmitButton extends StatelessWidget {
   const MySubmitButton({
     Key? key,
     required this.title,
+    required this.function,
   }) : super(key: key);
-
+  final VoidCallback function;
   final String title;
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class MySubmitButton extends StatelessWidget {
         minWidth: double.infinity,
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: function,
         child: Text(
           title,
           style: const TextStyle(
