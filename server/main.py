@@ -13,18 +13,20 @@ async def root():
 @app.get("/{word}")
 async def getAll(word: str):
     syns = wordnet.synsets(word)
-    synonyms = []
-    antonyms = []
+    synonyms = set()
+    antonyms = set()
     for syn in syns:
         for l in syn.lemmas():
-            synonyms.append(l.name())
+            synonyms.add(str(l.name()))
             if l.antonyms():
-                antonyms.append(l.antonyms()[0].name())
+                antonyms.add(str(l.antonyms()[0].name()))
     return {
         "title": word,
         "definition": syns[0].definition(),
         # "synonyms": '"["' + '","'.join(synonyms) + '"]"',  # '["s","a","d"]'
-        "synonyms": json.dumps(synonyms) if synonyms else "",
+        # "synonyms": json.dumps(list(synonyms)) if synonyms else "",
+        "synonyms": list(synonyms),
         # "antonyms": '"["' + '","'.join(antonyms) + '"]"',
-        "antonyms": json.dumps(antonyms) if antonyms else "",
+        # "antonyms": json.dumps(list(antonyms)) if antonyms else "",
+        "antonyms": list(antonyms),
     }

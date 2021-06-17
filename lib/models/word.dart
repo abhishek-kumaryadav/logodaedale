@@ -6,7 +6,7 @@ part 'word.g.dart';
 @JsonSerializable()
 class Word {
   // WordClient wordd;
-  late final String word;
+  late String word;
   late List<String> synonyms;
   late List<String> antonyms;
   late String definition;
