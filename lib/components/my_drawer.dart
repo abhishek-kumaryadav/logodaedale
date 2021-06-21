@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logodaedale/models/theme_manager.dart';
-import 'package:provider/provider.dart';
 
-class MyDrawer extends StatelessWidget {
+class MyDrawer extends ConsumerWidget {
   const MyDrawer({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ScopedReader watch) {
     final Size sz = MediaQuery.of(context).size;
-    ThemeManager _themeManger = Provider.of<ThemeManager>(context);
+    final _themeProvider = watch(themeProvider);
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -23,9 +23,9 @@ class MyDrawer extends StatelessWidget {
               child: Stack(
                 children: [
                   Switch(
-                    value: _themeManger.darkMode,
+                    value: _themeProvider.darkMode,
                     onChanged: (bool value) {
-                      _themeManger.switchTheme();
+                      _themeProvider.switchTheme();
                     },
                   ),
                 ],

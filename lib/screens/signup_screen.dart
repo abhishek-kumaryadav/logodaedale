@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
-
-import 'package:logodaedale/common/konstants.dart';
 import 'package:logodaedale/components/my_drawer.dart';
-import 'package:logodaedale/components/my_submit_button.dart';
-import 'package:logodaedale/components/my_text_form_field.dart';
 import 'package:logodaedale/components/signup_screen/my_signup_form.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -38,7 +33,7 @@ class SignUpPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, '/Login');
                       },
-                      child: Text(
+                      child: const Text(
                         "Login",
                       ),
                     ),

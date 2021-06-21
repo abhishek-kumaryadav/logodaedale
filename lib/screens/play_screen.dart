@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logodaedale/models/word.dart';
-import 'package:logodaedale/network/word_client.dart';
+import 'package:logodaedale/services/word_client.dart';
 import 'package:http/http.dart' as http;
 
 class PlayPage extends StatefulWidget {
@@ -24,11 +24,7 @@ class _PlayPageState extends State<PlayPage> {
               controller: _controller,
             ),
             ElevatedButton(
-              onPressed: () async {
-                WordClient _client = WordClient(word: _controller.text);
-                Word? word = await _client.fetchWord();
-                debugPrint(word!.synonyms.toString());
-              },
+              onPressed: () async {},
               child: Text('TOUCH'),
             ),
           ],

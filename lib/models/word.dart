@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:logodaedale/network/word_client.dart';
+import 'package:logodaedale/services/word_client.dart';
 part 'word.g.dart';
 
 // import '';

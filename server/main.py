@@ -20,9 +20,12 @@ async def getAll(word: str):
             synonyms.add(str(l.name()))
             if l.antonyms():
                 antonyms.add(str(l.antonyms()[0].name()))
+    defi = syns[0].definition()
+    # print(syns[0])
+    # defi = "HEEEELO"
     return {
         "title": word,
-        "definition": syns[0].definition(),
+        "definition": defi,
         # "synonyms": '"["' + '","'.join(synonyms) + '"]"',  # '["s","a","d"]'
         # "synonyms": json.dumps(list(synonyms)) if synonyms else "",
         "synonyms": list(synonyms),
