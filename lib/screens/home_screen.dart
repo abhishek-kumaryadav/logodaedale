@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:logodaedale/models/theme_manager.dart';
 import 'package:logodaedale/components/my_drawer.dart';
 import 'package:logodaedale/screens/login_screen.dart';
 import 'package:logodaedale/screens/play_screen.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,8 +15,6 @@ class _HomePageState extends State<HomePage> {
   final _pageOptions = [PlayPage(), LoginPage()];
   @override
   Widget build(BuildContext context) {
-    ThemeManager _themeManger = Provider.of<ThemeManager>(context);
-    Size sz = MediaQuery.of(context).size;
     return WillPopScope(
       onWillPop: () async {
         if (_currentIndex == 0) return true;

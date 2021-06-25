@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logodaedale/components/my_drawer.dart';
 import 'package:logodaedale/components/signup_screen/my_signup_form.dart';
+import 'package:logodaedale/controllers/auth_controller.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends HookWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Size sz = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(),
       drawer: MyDrawer(),
@@ -22,7 +24,7 @@ class SignUpPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   IconButton(
-                    icon: Icon(Icons.clear_rounded),
+                    icon: const Icon(Icons.clear_rounded),
                     onPressed: () {
                       SystemNavigator.pop();
                     },

@@ -3,19 +3,19 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logodaedale/providers/general_providers.dart';
 import 'package:logodaedale/repositories/custom_exception.dart';
 
-abstract class BaseAuthService {
+abstract class BaseAuthRepository {
   Stream<User?> get authStateChanges;
   Future<void> signInAnonymously();
   User? getCurrentUser();
   Future<void> signOut();
 }
 
-final authServiceProvider =
-    Provider<AuthService>((ref) => AuthService(ref.read));
+final authRepositoryProvider =
+    Provider<AuthRepository>((ref) => AuthRepository(ref.read));
 
-class AuthService implements BaseAuthService {
+class AuthRepository implements BaseAuthRepository {
   final Reader _read;
-  const AuthService(this._read);
+  const AuthRepository(this._read);
 
   @override
   Stream<User?> get authStateChanges =>

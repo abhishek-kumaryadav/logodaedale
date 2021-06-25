@@ -8,7 +8,7 @@ part of 'word.dart';
 
 Word _$WordFromJson(Map<String, dynamic> json) {
   return Word(
-    json['title'] as String,
+    json['word'] as String,
     (json['synonyms'] as List<dynamic>).map((e) => e as String).toList(),
     (json['antonyms'] as List<dynamic>).map((e) => e as String).toList(),
     json['definition'] as String,

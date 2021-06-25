@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:logodaedale/models/word.dart';
-import 'package:logodaedale/services/word_client.dart';
-import 'package:http/http.dart' as http;
 
 class PlayPage extends StatefulWidget {
   const PlayPage({Key? key}) : super(key: key);
@@ -25,7 +22,7 @@ class _PlayPageState extends State<PlayPage> {
             ),
             ElevatedButton(
               onPressed: () async {},
-              child: Text('TOUCH'),
+              child: const Text('TOUCH'),
             ),
           ],
         ),

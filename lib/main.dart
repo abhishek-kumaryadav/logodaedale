@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logodaedale/common/app_themes.dart';
-import 'package:logodaedale/models/theme_manager.dart';
+import 'package:logodaedale/controllers/theme_controller.dart';
 import 'package:logodaedale/routes.dart';
 
 Future<void> main() async {
@@ -11,12 +12,13 @@ Future<void> main() async {
   runApp(ProviderScope(child: const MyApp()));
 }
 
-class MyApp extends ConsumerWidget {
+class MyApp extends HookWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final _darkMode = watch(themeProvider).darkMode;
+  Widget build(BuildContext context) {
+    final _darkMode = useProvider(themeControllerProvider);
+    // debugPrint("Main: ${_darkMode}");
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "LOGODAEDALE",
