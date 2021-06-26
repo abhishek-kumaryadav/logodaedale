@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:logodaedale/models/word.dart';
+
+import 'package:logodaedale/models/word_model/word.dart';
 
 class Words {
   final List<Word> words;

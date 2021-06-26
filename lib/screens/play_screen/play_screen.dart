@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class PlayPage extends StatefulWidget {
-  const PlayPage({Key? key}) : super(key: key);
+class PlayScreen extends StatefulWidget {
+  const PlayScreen({Key? key}) : super(key: key);
 
   @override
-  State<PlayPage> createState() => _PlayPageState();
+  State<PlayScreen> createState() => _PlayScreenState();
 }
 
-class _PlayPageState extends State<PlayPage> {
+class _PlayScreenState extends State<PlayScreen> {
   final _controller = TextEditingController();
 
   @override

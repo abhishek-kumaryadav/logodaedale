@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:logodaedale/components/login_screen/my_login_form.dart';
-import 'package:logodaedale/components/signup_screen/my_signup_form.dart';
+import 'package:logodaedale/screens/login_screen/components/my_login_form.dart';
+import 'package:logodaedale/screens/signup_screen/components/my_signup_form.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

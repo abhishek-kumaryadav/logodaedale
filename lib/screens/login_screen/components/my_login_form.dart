@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:logodaedale/components/custom_or_linebreak.dart';
-import 'package:logodaedale/components/my_submit_button.dart';
-import 'package:logodaedale/components/my_text_form_field.dart';
+import 'package:logodaedale/screens/components/custom_or_linebreak.dart';
+import 'package:logodaedale/screens/components/my_submit_button.dart';
+import 'package:logodaedale/screens/components/my_text_form_field.dart';
 
 class MyLoginForm extends StatelessWidget {
   const MyLoginForm({

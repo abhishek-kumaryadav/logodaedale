@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:logodaedale/components/my_drawer.dart';
-import 'package:logodaedale/screens/login_screen.dart';
-import 'package:logodaedale/screens/play_screen.dart';
+import 'package:logodaedale/screens/components/my_drawer.dart';
+import 'package:logodaedale/screens/login_screen/login_screen.dart';
+import 'package:logodaedale/screens/play_screen/play_screen.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
-  final _pageOptions = [PlayPage(), LoginPage()];
+  final _pageOptions = [PlayScreen(), LoginScreen()];
   @override
   Widget build(BuildContext context) {
     return WillPopScope(

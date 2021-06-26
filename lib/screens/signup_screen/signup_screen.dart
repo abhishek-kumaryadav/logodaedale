@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:logodaedale/components/my_drawer.dart';
-import 'package:logodaedale/components/signup_screen/my_signup_form.dart';
-import 'package:logodaedale/controllers/auth_controller.dart';
+import 'package:logodaedale/screens/components/my_drawer.dart';
+import 'package:logodaedale/screens/signup_screen/components/my_signup_form.dart';
 
-class SignUpPage extends HookWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class SignUpScreen extends HookWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
