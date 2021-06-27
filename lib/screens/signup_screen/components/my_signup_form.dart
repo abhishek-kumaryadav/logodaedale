@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logodaedale/screens/components/my_submit_button.dart';
 import 'package:logodaedale/screens/components/my_text_form_field.dart';
 
 class MySignupForm extends StatelessWidget {
-  const MySignupForm({
+  MySignupForm({
     Key? key,
     required this.function,
+    required this.usernameController,
+    required this.emailController,
+    required this.passwordController,
     // required this.sz,
   }) : super(key: key);
 
   // final Size sz;
   final VoidCallback function;
+  final usernameController;
+  final emailController;
+  final passwordController;
+
+  final credentials = Credentials();
   @override
   Widget build(BuildContext context) {
     Size sz = MediaQuery.of(context).size;
+
     return Container(
       // TODO: dynamic width
       width: sz.width * 0.76,
@@ -26,8 +36,7 @@ class MySignupForm extends StatelessWidget {
               validator: (value) {
                 if (value == null) return null;
               },
-              textInputType: TextInputType.name,
-              obscureText: false,
+              controller: usernameController,
             ),
             MyTextFormField(
               title: "Email",
@@ -35,7 +44,7 @@ class MySignupForm extends StatelessWidget {
                 if (value == null) return null;
               },
               textInputType: TextInputType.emailAddress,
-              obscureText: false,
+              controller: emailController,
             ),
             MyTextFormField(
               title: "Password",
@@ -44,9 +53,10 @@ class MySignupForm extends StatelessWidget {
               },
               textInputType: TextInputType.text,
               obscureText: true,
+              controller: passwordController,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 20),
+              padding: const EdgeInsets.symmetric(vertical: 20),
               child: MySubmitButton(
                 title: "Create Account",
                 function: function,
@@ -100,4 +110,10 @@ class MySignupForm extends StatelessWidget {
       ),
     );
   }
+}
+
+class Credentials {
+  String email;
+  String password;
+  Credentials({this.email = "defaultValue", this.password = "defaultValue"});
 }

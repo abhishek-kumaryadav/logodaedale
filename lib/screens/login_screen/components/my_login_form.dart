@@ -8,11 +8,14 @@ import 'package:logodaedale/screens/components/my_text_form_field.dart';
 class MyLoginForm extends StatelessWidget {
   const MyLoginForm({
     Key? key,
-    // required this.sz,
+    required this.function,
+    required this.usernameOrEmailController,
+    required this.passwordController,
   }) : super(key: key);
 
-  // final Size sz;
-
+  final VoidCallback function;
+  final usernameOrEmailController;
+  final passwordController;
   @override
   Widget build(BuildContext context) {
     Size sz = MediaQuery.of(context).size;
@@ -27,22 +30,21 @@ class MyLoginForm extends StatelessWidget {
               validator: (value) {
                 if (value == null) return null;
               },
-              textInputType: TextInputType.text,
-              obscureText: false,
+              controller: usernameOrEmailController,
             ),
             MyTextFormField(
               title: "Password",
               validator: (value) {
                 if (value == null) return null;
               },
-              textInputType: TextInputType.text,
               obscureText: true,
+              controller: passwordController,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: MySubmitButton(
                 title: "Login",
-                function: () {},
+                function: function,
               ),
             ),
             const CustomORLineBreak(),

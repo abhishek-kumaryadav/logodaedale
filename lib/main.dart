@@ -26,7 +26,7 @@ class MyApp extends HookWidget {
       theme: themeControllerState
           ? appThemeData[AppTheme.Dark]
           : appThemeData[AppTheme.Default],
-      initialRoute: '/SignUp',
+      initialRoute: authControllerState == null ? '/SignUp' : '/Home',
       routes: routes,
     );
   }

@@ -6,21 +6,21 @@ class MyTextFormField extends StatelessWidget {
     Key? key,
     required this.title,
     required this.validator,
-    required this.textInputType,
-    required this.obscureText,
-    // required this.validatorr,
+    this.textInputType = TextInputType.text,
+    this.obscureText = false,
+    required this.controller,
   }) : super(key: key);
   final String title;
-  // final Function validatorr;
-  final String? Function(String?) validator;
   final TextInputType textInputType;
   final bool obscureText;
+  final FormFieldValidator<String> validator;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
+      margin: const EdgeInsets.symmetric(vertical: 5),
       height: kTextFieldHeight,
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.grey.shade300,
@@ -28,16 +28,18 @@ class MyTextFormField extends StatelessWidget {
         border: Border.all(color: Colors.grey.shade600, width: 2),
       ),
       child: TextFormField(
+        autovalidateMode: AutovalidateMode.always,
         cursorColor: Colors.black,
-        style: TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.black),
         keyboardType: textInputType,
         obscureText: obscureText,
         decoration: InputDecoration(
           hintText: title,
-          hintStyle: TextStyle(color: Colors.black),
+          hintStyle: const TextStyle(color: Colors.black),
           border: InputBorder.none,
         ),
         validator: validator,
+        controller: controller,
       ),
     );
   }

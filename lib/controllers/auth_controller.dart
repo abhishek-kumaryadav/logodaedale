@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logodaedale/repositories/auth_repository.dart';
 
 final authControllerProvider = StateNotifierProvider(
-  (ref) => AuthController(ref.read)..appStarted(),
+  (ref) => AuthController(ref.read),
 );
 
 class AuthController extends StateNotifier<User?> {
@@ -24,10 +24,21 @@ class AuthController extends StateNotifier<User?> {
     super.dispose();
   }
 
-  Future<void> appStarted() async {
-    User? user = _read(authRepositoryProvider).getCurrentUser();
-    if (user == null) await _read(authRepositoryProvider).signInAnonymously();
-  }
+  // Future<void> appStarted() async {
+  //   User? user = _read(authRepositoryProvider).getCurrentUser();
+  // }
+
+  Future<void> createUserWithEmailAndPassword(
+          String email, String password) async =>
+      await _read(authRepositoryProvider)
+          .createUserWithEmailAndPassword(email, password);
+
+  Future<void> signInWithEmailAndPassword(
+          String email, String password) async =>
+      await _read(authRepositoryProvider)
+          .signInWithEmailAndPassword(email, password);
+
+  bool get emailVerified => _read(authRepositoryProvider).emailVerified;
 
   Future<void> signOut() async => await _read(authRepositoryProvider).signOut();
 }

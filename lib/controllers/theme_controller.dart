@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:logodaedale/models/theme_model/theme_model.dart';
 import 'package:logodaedale/repositories/theme_repository.dart';
 
 final themeControllerProvider =

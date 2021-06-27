@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logodaedale/controllers/auth_controller.dart';
 import 'package:logodaedale/screens/login_screen/components/my_login_form.dart';
-import 'package:logodaedale/screens/signup_screen/components/my_signup_form.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginScreen extends HookWidget {
+  LoginScreen({Key? key}) : super(key: key);
 
+  final usernameOREmailController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    Size sz = MediaQuery.of(context).size;
+    final authControllerState = useProvider(authControllerProvider);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -19,7 +23,7 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   IconButton(
-                    icon: Icon(Icons.clear_rounded),
+                    icon: const Icon(Icons.clear_rounded),
                     onPressed: () {
                       SystemNavigator.pop();
                     },
@@ -30,7 +34,7 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text(
+                      child: const Text(
                         "Sign Up",
                       ),
                     ),
@@ -44,14 +48,31 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   const Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 10),
                     child: Text(
                       "Log in",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                     ),
                   ),
-                  MyLoginForm(),
+                  MyLoginForm(
+                    passwordController: passwordController,
+                    usernameOrEmailController: usernameOREmailController,
+                    function: () async {
+                      if (authControllerState != null) {
+                        context.read(authControllerProvider.notifier).signOut();
+                      }
+                      await context
+                          .read(authControllerProvider.notifier)
+                          .signInWithEmailAndPassword(
+                              usernameOREmailController.text,
+                              passwordController.text);
+                      if (authControllerState != null) {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, '/Home', (Route<dynamic> route) => false);
+                      }
+                    },
+                  ),
                 ],
               ),
               // ),
